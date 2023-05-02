@@ -5,14 +5,14 @@
 Using `lazy.nvim`:
 
 ```lua
-  {
-	'frnsys/futora',
-  	lazy = false,
-	priority=1000,
-	dependencies = {
-      "rktjmp/lush.nvim",
-	},
+{
+  'frnsys/futora',
+  lazy = false,
+  priority=1000,
+  dependencies = {
+    "rktjmp/lush.nvim",
   },
+},
 ```
 
 # Editing
