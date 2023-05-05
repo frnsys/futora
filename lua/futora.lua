@@ -4,10 +4,10 @@
 
 local lush = require('lush')
 
-local yellow  = "#ffd700"
+local yellow  = "#f8aa01"
 local red = "#ff2f6d"
 local blue = "#2c84fc"
-local purple = "#b56efa"
+local purple = "#886efa"
 local green = "#43cc70"
 local muted = "#444444"
 
@@ -100,7 +100,7 @@ local theme = lush(function(injected_functions)
     -- Structure      { fg=green }, --   struct, union, enum, etc.
     -- Typedef        { fg=green }, --   A typedef
 
-    -- Special        { }, -- (*) Any special symbol
+    Special        { fg="#f8aa01" }, -- (*) Any special symbol
     -- SpecialChar    { }, --   Special character in a constant
     -- Tag            { }, --   You can use CTRL-] on this
     -- Delimiter      { }, --   Character that needs attention
@@ -110,7 +110,7 @@ local theme = lush(function(injected_functions)
     Underlined     { gui = "underline", fg=blue },
     -- Ignore         { }, -- Left blank, hidden |hl-Ignore| (NOTE: May be invisible here in template)
     -- Error          { }, -- Any erroneous construct
-    Todo           { bg=yellow, fg="#111111" }, -- Anything that needs extra attention; mostly the keywords TODO FIXME and XXX
+    Todo           { fg="#f8aa01" }, -- Anything that needs extra attention; mostly the keywords TODO FIXME and XXX
 
     -- These groups are for the native LSP client and diagnostic system. Some
     -- other LSP clients may use these groups, or use their own. Consult your
@@ -129,7 +129,7 @@ local theme = lush(function(injected_functions)
     --
     -- DiagnosticError            { } , -- Used as the base highlight group. Other Diagnostic highlights link to this by default (except Underline)
     -- DiagnosticWarn             { } , -- Used as the base highlight group. Other Diagnostic highlights link to this by default (except Underline)
-    -- DiagnosticInfo             { } , -- Used as the base highlight group. Other Diagnostic highlights link to this by default (except Underline)
+    DiagnosticInfo             { fg="#a6cccc" } , -- Used as the base highlight group. Other Diagnostic highlights link to this by default (except Underline)
     -- DiagnosticHint             { } , -- Used as the base highlight group. Other Diagnostic highlights link to this by default (except Underline)
     -- DiagnosticVirtualTextError { } , -- Used for "Error" diagnostic virtual text.
     -- DiagnosticVirtualTextWarn  { } , -- Used for "Warn" diagnostic virtual text.
@@ -172,10 +172,12 @@ local theme = lush(function(injected_functions)
     -- sym"@text.underline"    { }, -- Underlined
     sym"@text.strong"         { gui="bold" },
     -- sym"@text.todo"         { }, -- Todo
+    sym"@text.code"            { fg=yellow },
+	sym"@text.code_block"      { fg="#a6cccc" },
     -- sym"@comment"           { }, -- Comment
     sym"@comment.documentation" { bg="#262626", fg="#ffd787" },
     sym"@punctuation"	{ fg=blue },
-    sym"@punctuation.bracket"  { fg=muted},
+    sym"@punctuation.bracket"  { fg="#606060" },
     sym"@punctuation.special"  { fg=blue }, -- Delimiter
     -- sym"@constant"          { }, -- Constant
     -- sym"@constant.builtin"  { }, -- Special
@@ -196,7 +198,7 @@ local theme = lush(function(injected_functions)
     -- sym"@parameter"         { }, -- Identifier
     -- sym"@method"            { }, -- Function
     sym"@field"                { fg="#00af87" },
-    -- sym"@property"          { }, -- Identifier
+    sym"@property"             { fg="#00af87" },
     -- sym"@constructor"       { }, -- Special
     -- sym"@conditional"       { }, -- Conditional
     -- sym"@repeat"            { }, -- Repeat
@@ -205,11 +207,13 @@ local theme = lush(function(injected_functions)
     -- sym"@keyword"           { }, -- Keyword
     -- sym"@exception"         { }, -- Exception
     -- sym"@variable"          { }, -- Identifier
+    sym"@variable.builtin"     { fg="#4b76b8" }, -- Identifier
     -- sym"@type"              { }, -- Type
     -- sym"@type.definition"   { }, -- Typedef
+    sym"@type.qualifier"              { fg="#4b76b8" },
     -- sym"@storageclass"      { }, -- StorageClass
     -- sym"@structure"         { }, -- Structure
-    sym"@namespace"         { fg="#4b76b8" }, -- Identifier
+    sym"@namespace"         { fg="#7fb1f5" }, -- Identifier
     -- sym"@include"           { }, -- Include
     -- sym"@preproc"           { }, -- PreProc
     -- sym"@debug"             { }, -- Debug
